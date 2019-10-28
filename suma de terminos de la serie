@@ -1,0 +1,33 @@
+/******************************************************************************
+Escribe un programa en C que obtenga y escriba tanto los términos como la suma de los términos de la siguiente serie: (SENTENCIA WHILE)
+
+2, 7, 10, 15, 18, 23, . . ., 2500
+
+Donde: I es una variable de tipo entero que se utiliza para incrementar el valor de los términos de la serie.
+SSE es una variable de tipo entero que se utiliza para sumar los términos.
+CAM es una variable de tipo entero que se utiliza para distinguir el valor a sumar.
+*******************************************************************************/
+#include <stdio.h>                                                              //se incluye a la libreria//
+
+void main()                                                                     //no devuelve ningun valor//
+{
+    int I=2, CAM=1, SSE=0;                                                      //variables que se va a utilizar de tipo entero//
+    while (I<=2500)                                                             //sentencia while se realiza la accion si I es menor o igual a 2500//
+    {
+        SSE=SSE+I;                                                              //formula para sacar la sumatoria de la serie//
+        if (CAM)                                                                //sentencia if para saber el valor a sumar//
+        {
+            I=I+5;                                                              //acumulador del nuevo valor de I//
+            CAM=CAM-1;                                                          //saber el valor a sumar//
+            printf("El nuevo valor de I es:%d\n", I);                           //se imprime el nuevo valor que toma I// 
+        }
+        else                                                                    //si no se realiza la anterior accion se realiza esta accion para conocer el nuevo valor a sumar//
+        {
+            I=I+3;                                                              //acumulador del nuevo valor de I//
+            CAM=CAM+1;                                                          //saber el valor a sumar//
+            printf("El nuevo valor de I es:%d\n", I);                           //se imprime el nuevo valor que toma I// 
+        }
+    }
+    printf("\nLa suma total de la serie hasta 2500 es de: %d", SSE);            //se imprime el valor de la sumatoria de la serie//
+}
+
