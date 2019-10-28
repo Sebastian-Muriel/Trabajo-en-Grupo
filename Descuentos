@@ -1,0 +1,50 @@
+/******************************************************************************
+En una tienda departamental ofrecen descuentos a los clientes en la Navidad, de acuerdo con el monto de su compra. El
+criterio para establecer el descuento se muestra abajo. Construye el correspondiente programa en C que, al recibir como
+dato el monto de la compra del cliente, obtenga el precio real que debe pagar luego de aplicar el descuento correspondiente.
+
+Compra < $800 ⇒ Descuento 0%.
+$800  Compra  $1500 ⇒ Descuento 10%.
+$1500 < Compra  $5000 ⇒ Descuento 15%.
+$5000 < Compra ⇒ Descuento 20%.
+*******************************************************************************/
+#include <stdio.h>                                          //se incluye a la libreria//
+
+void main()                                                 //no devuelve ningun valor//
+{
+    float compra, precio, des0=0, des10=0, des15=0, des20=0;//variables que se va a utilizar de tipo flotante//
+    printf("Ingrese el valor de la compra a pagar:");       //se introduce el valor de la compra//
+    scanf("%f", &compra);                                   //lee el valor de la compra//
+    if (compra<800)                                         //sentencia condicional, si la compra es menor a $800// 
+    {
+        des0=(compra*0)/100;                                //formula para sacar el descuento del 0%//
+        precio=compra-des0;                                 //formula para sacar el precio real de la compra//
+        printf("El valor de la compra es: %.2f\n", compra); //se imprime el valor de la compra//
+        printf("El descuento es de: %.2f\n", des0);         //se imprime el descuento realizado//
+        printf("El valor a pagar es de: %.2f", precio);     //se imprime el precio real de la compra//
+    }
+    else if (compra>=800 && compra<1500)                    //sentencia condicional, si la compra es mayor o igual a $800 y menor a $1500//
+    {
+        des10=(compra*10)/100;                              //formula para sacar el descuento del 10%//
+        precio=compra-des10;                                //formula para sacar el precio real de la compra//
+        printf("El valor de la compra es: %.2f\n", compra); //se imprime el valor de la compra//
+        printf("El descuento es de: %.2f\n", des10);        //se imprime el descuento realizado//
+        printf("El valor a pagar es de: %.2f", precio);     //se imprime el precio real de la compra//
+    }
+    else if (compra>=1500 && compra<5000)                   //sentencia condicional, si la compra es mayor o igual a $1500 y menor a $5000//
+    {
+        des15=(compra*15)/100;                              //formula para sacar el descuento del 15%//
+        precio=compra-des15;                                //formula para sacar el precio real de la compra//
+        printf("El valor de la compra es: %.2f\n", compra); //se imprime el valor de la compra//
+        printf("El descuento es de: %.2f\n", des15);        //se imprime el descuento realizado//
+        printf("El valor a pagar es de: %.2f", precio);     //se imprime el precio real de la compra//
+    }
+    else if (compra>=5000)                                  //sentencia condicional, si la compra es mayor a $5000//
+    {
+        des20=(compra*20)/100;                              //formula para sacar el descuento del 20%//
+        precio=compra-des20;                                //formula para sacar el precio real de la compra//
+        printf("El valor de la compra es: %.2f\n", compra); //se imprime el descuento realizado//
+        printf("El descuento es de: %.2f\n", des20);        //se imprime el descuento realizado//
+        printf("El valor a pagar es de: %.2f", precio);     //se imprime el precio real de la compra//
+    }
+}
