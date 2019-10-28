@@ -1,0 +1,40 @@
+/******************************************************************************
+Construye el respectivo programa en C que, al recibir como datos tres variables reales que representan los
+lados de un probable triángulo, determine si esos lados corresponden a un triángulo. En caso de serlo, además
+de escribir el área correspondiente compruebe si el mismo es equilátero, isósceles o escaleno.
+Datos: L1, L2 y L3 (variables de tipo real que representan los posibles lados de un triángulo).
+Consideraciones:
+• Si se cumple la propiedad de que la suma de los dos lados menores es menor a la del lado restante, es un triángulo.
+• El área se obtiene aplicando la siguiente fórmula:
+*******************************************************************************/
+#include <stdio.h>                                                              //se incluye a la libreria//
+#include <math.h>                                                               //se incluye a la libreria//
+void main()                                                                     //no devuelve ningun valor//
+{
+    float L1, L2, L3, area=0, S=0, R1, R2, R3, RT, SP;                          //variables que se va a utilizar de tipo flotante//
+    printf("Ingrese el primer lado:");                                          //se ingresa el valor del primer lado//
+    scanf("%f", &L1);                                                           //lee el valor del primer lado//
+    printf("Ingrese el segundo lado:");                                         //se ingresa el valor del segundo lado//
+    scanf("%f", &L2);                                                           //lee el valor del segundo lado//
+    printf("Ingrese el tercer lado:");                                          //se ingresa el valor del tercer lado//
+    scanf("%f", &L3);                                                           //lee el valor del tercer lado//
+    if (L1+L2>L3 && L1+L3>L2 && L2+L3>L1)                                       //sentencia if se debe cumplir estas condiciones para que sea un triangulo//
+    {
+        SP=(L1+L2+L3)/2;                                                        //formula para calcular el semiperimetro SP//
+        R1=SP-L1;                                                               //formula para calcular R1//
+        R2=SP-L2;                                                               //formula para calcular R2//
+        R3=SP-L3;                                                               //formula para calcular R3//
+        RT=R1*R2*R3;                                                            //formula para calcular RT//
+        S=RT*SP;                                                                //formula para calcular S//
+        area=sqrt(S);                                                           //formula para calcular el area//
+        printf("El area del triangulo es: %.2f\n", area);                       //se imprime el area del triangulo//
+        if (L1==L2 || L1==L3 || L2==L3)                                         //sentencia if para saber si es un triangulo isosceles//
+            printf("Es un triangulo isosceles");                                //se imprime que es un triangulo isosceles//
+        else if (L1==L2 && L1==L3 && L2==L3)                                    //sentencia if para saber si es un triangulo equilátero//
+            printf("Es un triangulo equilátero");                               //se imprime que es un triangulo equilátero//
+        else if (L1!=L2 && L1!=L3 && L2!=L3)                                    //sentencia if para saber si es un triangulo escaleno//
+            printf("Es un triangulo escaleno");                                 //se imprime que es un triangulo escaleno//
+    }
+    else                                                                        //sino cumple las condiciones no es un triangulo//
+        printf ("Los lados no son parte de un triangulo");                          //se imprime que los lados no son parte de un triangulo//
+}
